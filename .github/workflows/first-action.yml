@@ -18,5 +18,20 @@ jobs:
       #     if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Run Test
         run: python test.py
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to GitHub Pages
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: ./
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v2
           
     
