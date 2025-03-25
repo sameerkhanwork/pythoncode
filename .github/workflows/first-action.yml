@@ -1,6 +1,17 @@
 name: My First Github Actions
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+
+# on: [push]
 
 jobs:
   test:
